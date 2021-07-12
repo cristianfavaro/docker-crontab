@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM python:3.8
 
 RUN apt-get update && apt-get -y install cron
 
@@ -11,7 +11,7 @@ RUN chmod 0644 /etc/cron.d/hello-cron
 # Apply cron job
 RUN crontab /etc/cron.d/hello-cron
  
-# Create the log file to be able to run tail
+# Create the log file to be able to run tals
 RUN touch /var/log/cron.log
  
 # Run the command on container startup
