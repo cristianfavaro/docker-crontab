@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
 
 RUN touch /var/log/cron.log
+ADD ./crontabs /etc/cron.d
+ADD ./scripts /var/scripts
 
 RUN apt-get update \
     && apt-get -y install cron
