@@ -1,8 +1,9 @@
 version: '3'
 services:
   crontab:
-    
     build: .
     volumes:
       - ./crontabs:/etc/cron.d
       - ./scripts:/var/scripts
+      
+    command: bash -c "chmod 0644 /etc/cron.d/crontab && crontab /etc/cron.d/crontab && cron && tail -f /var/log/cron.log"

@@ -3,13 +3,13 @@ FROM python:3.8
 RUN apt-get update && apt-get -y install cron
 
 # Copy hello-cron file to the cron.d directory
-COPY ./crontabs /etc/cron.d/
+COPY hello-cron /etc/cron.d/hello-cron
  
 # Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/
+RUN chmod 0644 /etc/cron.d/hello-cron
 
 # Apply cron job
-# RUN crontab /etc/cron.d/
+RUN crontab /etc/cron.d/hello-cron
  
 # Create the log file to be able to run tals
 RUN touch /var/log/cron.log
