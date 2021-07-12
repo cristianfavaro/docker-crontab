@@ -9,7 +9,7 @@ COPY ./crontabs /etc/cron.d/
 RUN chmod 0644 /etc/cron.d/
 
 # Apply cron job
-RUN crontab /etc/cron.d/
+# RUN crontab /etc/cron.d/
  
 # Create the log file to be able to run tals
 RUN touch /var/log/cron.log
